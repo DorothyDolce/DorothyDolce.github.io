@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Establishing connection to SEL network...",
             "Connection Established. Protocol: TCP/IP",
             "",
-            "Login: lain",
+            "Login: Hello, Navi!!",
             "Password: ****",
             "",
             "ACCESS GRANTED"
