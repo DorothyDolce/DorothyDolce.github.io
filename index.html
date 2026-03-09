@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO :: LAIN_OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="SYSTEM_LOGIN_OK">SYSTEM_LOGIN_OK</h1>
+            <p class="subtitle">Accessing portfolio data...</p>
+        </header>
+
+        <main>
+            <section id="identity" class="terminal-block">
+                <h2>&gt; whoami</h2>
+                <div class="content typing-effect" data-text="自己紹介: Cyber Domainの探索者。フロントエンドとバックエンドの境界を越えてシステムを構築します。">
+                </div>
+            </section>
+
+            <section id="skills" class="terminal-block">
+                <h2>&gt; cat skills.txt</h2>
+                <div class="content delay-1">
+                    <ul>
+                        <li><span class="highlight">[Languages]</span> JavaScript, TypeScript, Python, C++, HTML/CSS
+                        </li>
+                        <li><span class="highlight">[Frameworks]</span> React, Next.js, Node.js</li>
+                        <li><span class="highlight">[Certifications]</span> AWS Certified Developer, 基本情報技術者</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="links" class="terminal-block">
+                <h2>&gt; ls -l /net/links</h2>
+                <div class="content delay-2">
+                    <ul class="link-list">
+                        <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">[GitHub]
+                                github.com/yourusername</a></li>
+                        <li><a href="https://atcoder.jp/users/yourusername" target="_blank"
+                                rel="noopener noreferrer">[AtCoder] atcoder.jp/users/yourusername</a></li>
+                        <li><a href="mailto:your_email@example.com">[Comm] mailto:your_email@example.com</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Connection closed by foreign host.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

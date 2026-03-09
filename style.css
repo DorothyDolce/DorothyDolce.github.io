@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --bg-color: #03060a;
+    --text-color: #88ccff;
+    --glow-color: rgba(136, 204, 255, 0.6);
+    --highlight-color: #d0e8ff;
+    --font-mono: 'Share Tech Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* CRT Effects */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+    z-index: 100;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 99;
+    opacity: 0.8;
+}
+
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 99;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.05;
+    }
+
+    50% {
+        opacity: 0.01;
+    }
+
+    100% {
+        opacity: 0.08;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--glow-color);
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.terminal-block {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.content {
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(136, 204, 255, 0.3);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+li::before {
+    content: "- ";
+}
+
+.highlight {
+    color: var(--highlight-color);
+    font-weight: bold;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--highlight-color);
+    background: rgba(136, 204, 255, 0.1);
+}
+
+footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 rgba(255, 0, 0, 0.7);
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 rgba(0, 0, 255, 0.7);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+    }
+
+    100% {
+        clip-path: inset(30% 0 20% 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: inset(10% 0 60% 0);
+    }
+
+    20% {
+        clip-path: inset(30% 0 20% 0);
+    }
+
+    40% {
+        clip-path: inset(70% 0 10% 0);
+    }
+
+    60% {
+        clip-path: inset(20% 0 50% 0);
+    }
+
+    80% {
+        clip-path: inset(50% 0 30% 0);
+    }
+
+    100% {
+        clip-path: inset(5% 0 80% 0);
+    }
+}
+
+/* Delay for list items */
+.delay-1 {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+    animation-delay: 1.5s;
+}
+
+.delay-2 {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
