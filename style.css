@@ -387,23 +387,28 @@ footer {
     }
 }
 
-.delay-1, .delay-2, .delay-3 {
+.delay-1, .delay-2, .delay-3, .delay-4 {
     opacity: 0;
 }
 
 .show-content .delay-1 {
     animation: fadeIn 2s forwards;
-    animation-delay: 1.5s;
+    animation-delay: 1.0s;
 }
 
 .show-content .delay-2 {
     animation: fadeIn 2s forwards;
-    animation-delay: 3.0s;
+    animation-delay: 2.0s;
 }
 
 .show-content .delay-3 {
     animation: fadeIn 2s forwards;
-    animation-delay: 4.5s; 
+    animation-delay: 3.0s; 
+}
+
+.show-content .delay-4 {
+    animation: fadeIn 2s forwards;
+    animation-delay: 4.0s; 
 }
 
 @keyframes fadeIn {
