@@ -400,6 +400,12 @@ footer {
     animation-delay: 2.5s;
 }
 
+.delay-3 {
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+    animation-delay: 3.5s;
+}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
