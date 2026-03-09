@@ -387,23 +387,23 @@ footer {
     }
 }
 
-/* Delay for list items */
-.delay-1 {
-    animation: fadeIn 2s forwards;
+.delay-1, .delay-2, .delay-3 {
     opacity: 0;
+}
+
+.show-content .delay-1 {
+    animation: fadeIn 2s forwards;
     animation-delay: 1.5s;
 }
 
-.delay-2 {
+.show-content .delay-2 {
     animation: fadeIn 2s forwards;
-    opacity: 0;
-    animation-delay: 2.5s;
+    animation-delay: 3.0s;
 }
 
-.delay-3 {
+.show-content .delay-3 {
     animation: fadeIn 2s forwards;
-    opacity: 0;
-    animation-delay: 3.5s;
+    animation-delay: 4.5s; 
 }
 
 @keyframes fadeIn {

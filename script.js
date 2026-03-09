@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bootTextEl = document.getElementById('boot-text');
 
     function startPortfolioAnimations() {
+        document.body.classList.add('show-content');
         // --- Typing effect for the intro section ---
         const typingElements = document.querySelectorAll('.typing-effect');
 
