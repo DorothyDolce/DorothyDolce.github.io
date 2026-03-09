@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = ''; // Clear fallback text if any
 
             let i = 0;
-            const speed = 150; // Base milliseconds per character
+            const speed = 2; // Base milliseconds per character
 
             function typeWriter() {
                 if (i < text.length) {
