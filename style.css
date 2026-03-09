@@ -24,6 +24,19 @@ body {
     min-height: 100vh;
 }
 
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Below content, above base background */
+    opacity: 0.25;
+    /* Keep it subtle so it doesn't overpower text */
+    pointer-events: none;
+}
+
 /* CRT Effects */
 .crt-overlay {
     position: fixed;
@@ -34,6 +47,34 @@ body {
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
     pointer-events: none;
     z-index: 100;
+}
+
+/* Boot Sequence Overlay */
+.boot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    padding: 2rem;
+    font-family: var(--font-mono);
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--glow-color);
+    transition: opacity 1.5s ease;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.boot-cursor {
+    animation: blink 1s step-end infinite;
+    display: inline-block;
+}
+
+.boot-hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .scanlines {
@@ -91,6 +132,116 @@ header {
     margin-bottom: 3rem;
     border-bottom: 1px solid var(--glow-color);
     padding-bottom: 1rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Nixie Tube Style (Pale Blue Variant) */
+.nixie-clock {
+    display: flex;
+    align-items: center;
+    background: rgba(10, 15, 25, 0.8);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(136, 204, 255, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(136, 204, 255, 0.1);
+}
+
+.nixie-tube {
+    position: relative;
+    width: 30px;
+    height: 50px;
+    background: rgba(5, 10, 15, 0.9);
+    border-radius: 5px;
+    margin: 0 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(136, 204, 255, 0.1);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+/* The wire grid in front of the digit */
+.nixie-tube .grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(136, 204, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(136, 204, 255, 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.nixie-tube .digit {
+    font-family: var(--font-mono);
+    font-size: 2.2rem;
+    color: #e0f0ff;
+    text-shadow:
+        0 0 5px #88ccff,
+        0 0 10px #88ccff,
+        0 0 20px #44aaff;
+    z-index: 2;
+    transform: scaleY(1.2);
+    /* Slightly elongated */
+}
+
+/* Dim, unlit digits stacked behind the active one (simulation) */
+.nixie-tube::before {
+    content: "8";
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 2.2rem;
+    color: rgba(136, 204, 255, 0.05);
+    /* very dim back wires */
+    text-shadow: none;
+    z-index: 1;
+    transform: scaleY(1.2) translateX(-1px);
+}
+
+.nixie-tube::after {
+    content: "0";
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 2.2rem;
+    color: rgba(136, 204, 255, 0.08);
+    /* very dim back wires */
+    text-shadow: none;
+    z-index: 1;
+    transform: scaleY(1.2) translateX(1px);
+}
+
+.nixie-separator {
+    font-size: 2rem;
+    color: #e0f0ff;
+    text-shadow: 0 0 10px #88ccff;
+    margin: 0 4px;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+
+    0%,
+    20% {
+        opacity: 0.2;
+        text-shadow: none;
+    }
+
+    80%,
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #88ccff;
+    }
 }
 
 h1 {
