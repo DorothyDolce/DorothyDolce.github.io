@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Connection Established. Protocol: TCP/IP",
             "",
             "Login: Hello, Navi!!",
-            "Password: ****",
+            "Password: Make me mad, Make me sad, Make me feel alright?",
             "",
             "ACCESS GRANTED"
         ];
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (charIndex < valuePart.length) {
                     bootTextEl.innerHTML += valuePart[charIndex];
                     charIndex++;
-                    setTimeout(printLog, 150 + Math.random() * 100);
+                    setTimeout(printLog, 4 + Math.random() * 100);
                 } else {
                     bootTextEl.innerHTML += '<br>';
                     logIndex++;
