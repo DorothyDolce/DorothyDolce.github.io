@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Random noise/text glitch generator for elements not using CSS glitch
-    const glitchElements = document.querySelectorAll('.subtitle, h2, li');
+    const glitchElements = document.querySelectorAll('.subtitle, h2');
 
     setInterval(() => {
         if (Math.random() > 0.98) { // Occasional glitch
