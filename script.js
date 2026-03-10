@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Boot Sequence & Portfolio Initialization ---
     const bootOverlay = document.getElementById('boot-sequence');
     const bootTextEl = document.getElementById('boot-text');
+    const hasBooted = sessionStorage.getItem('systemBooted');
 
     function startPortfolioAnimations() {
         document.body.classList.add('show-content');
@@ -133,7 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (bootOverlay && bootTextEl) {
+    if (bootOverlay && bootTextEl && !hasBooted) {
+        sessionStorage.setItem('systemBooted', 'true');
         // Block scrolling during boot
         document.body.style.overflow = 'hidden';
 
@@ -197,6 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start boot sequence shortly after load
         setTimeout(printLog, 800);
     } else {
+        if (bootOverlay) {
+            bootOverlay.style.display = 'none'; // 起動画面を最初から非表示にする
+            document.body.style.overflow = '';  // スクロール制限を解除
+        }
         // Fallback if boot sequence overlay is missing
         startPortfolioAnimations();
     }
