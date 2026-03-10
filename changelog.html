@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHANGELOG :: DorothyDolce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1 class="glitch" data-text="UPDATE_HISTORY">UPDATE_HISTORY</h1>
+            </div>
+            <p class="subtitle">Reading changelog.txt...</p>
+        </header>
+
+        <main>
+            <section class="terminal-block">
+                <h2>&gt; tail -n 5 changelog.txt</h2>
+                <div class="content delay-1">
+                    <ul>
+                        <li><span class="highlight">[2026.03.10]</span> System initialized. Portfolio released.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="terminal-block">
+                <h2>&gt; cd ..</h2>
+                <div class="content delay-2">
+                    <ul class="link-list">
+                        <li><a href="index.html">[Return] ./index.html に戻る</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
